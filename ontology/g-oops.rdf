@@ -1,0 +1,580 @@
+<?xml version="1.0"?>
+<rdf:RDF xmlns="http://www.semanticweb.org/g-oops/"
+     xml:base="http://www.semanticweb.org/g-oops/"
+     xmlns:dc="http://purl.org/dc/elements/1.1/"
+     xmlns:owl="http://www.w3.org/2002/07/owl#"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:prov="http://www.w3.org/ns/prov#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     xmlns:terms="http://purl.org/dc/terms/">
+    <owl:Ontology rdf:about="http://www.semanticweb.org/g-oops">
+        <terms:license>Creative Commons Attribution 4.0 International</terms:license>
+    </owl:Ontology>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Annotation properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/license -->
+
+    <owl:AnnotationProperty rdf:about="http://purl.org/dc/terms/license"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#category -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/prov#category"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#component -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/prov#component"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#constraints -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/prov#constraints"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#definition -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/prov#definition"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#dm -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/prov#dm"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#n -->
+
+    <owl:AnnotationProperty rdf:about="http://www.w3.org/ns/prov#n"/>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Object Properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/hasPart -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/hasPart">
+        <owl:inverseOf rdf:resource="http://purl.org/dc/terms/isPartOf"/>
+        <rdfs:comment>This property is intended to be used with non-literal values. This property is an inverse property of Is Part Of.</rdfs:comment>
+        <rdfs:label>Has Part</rdfs:label>
+        <prov:definition>A related resource that is included either physically or logically in the described resource.</prov:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://purl.org/dc/terms/isPartOf -->
+
+    <owl:ObjectProperty rdf:about="http://purl.org/dc/terms/isPartOf">
+        <rdfs:comment>This property is intended to be used with non-literal values. This property is an inverse property of Has Part.</rdfs:comment>
+        <rdfs:label>Is Part Of</rdfs:label>
+        <prov:definition>A related resource in which the described resource is physically or logically included.</prov:definition>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/g-oops#contains -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/g-oops#contains">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/g-oops#isContained"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/g-oops#Scan"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/g-oops#Pitfall"/>
+        <rdfs:comment>Relation of the presence of a pitfall in a scan.</rdfs:comment>
+        <rdfs:label>contains</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/g-oops#evaluatedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/g-oops#evaluatedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/g-oops#evaluates"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/g-oops#Correction"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/g-oops#Oracle"/>
+        <rdfs:comment>Inverse of evaluates.</rdfs:comment>
+        <rdfs:label>evaluated by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/g-oops#evaluates -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/g-oops#evaluates">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdf:type rdf:resource="http://www.w3.org/2002/07/owl#FunctionalProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/g-oops#Oracle"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/g-oops#Correction"/>
+        <rdfs:comment>Relation expressing the evaluator of a correction.</rdfs:comment>
+        <rdfs:label>evaluates</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/g-oops#includes -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/g-oops#includes">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/g-oops#isIncluded"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/g-oops#Correction"/>
+        <rdfs:range rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+        <rdfs:comment>Relation expressing the presence of a statement in a correction.</rdfs:comment>
+        <rdfs:label>includes</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/g-oops#involves -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/g-oops#involves">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/g-oops#isInvolved"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/g-oops#Pitfall"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/g-oops#Concept"/>
+        <rdfs:comment>Relation expressing the mentioning of a concept in a detected pitfall.</rdfs:comment>
+        <rdfs:label>involves</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/g-oops#isContained -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/g-oops#isContained">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/g-oops#Pitfall"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/g-oops#Scan"/>
+        <rdfs:comment>Inverse of contains.</rdfs:comment>
+        <rdfs:label>is contained</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/g-oops#isIncluded -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/g-oops#isIncluded">
+        <rdfs:domain rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/g-oops#Correction"/>
+        <rdfs:comment>Inverse of includes.</rdfs:comment>
+        <rdfs:label>is included</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/g-oops#isInvolved -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/g-oops#isInvolved">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/g-oops#Concept"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/g-oops#Pitfall"/>
+        <rdfs:comment>Inverse of involves.</rdfs:comment>
+        <rdfs:label>is involved</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/g-oops#scannedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/g-oops#scannedBy">
+        <owl:inverseOf rdf:resource="http://www.semanticweb.org/g-oops#scans"/>
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/g-oops#Ontology"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/g-oops#Scan"/>
+        <rdfs:comment>Inverse of scans.</rdfs:comment>
+        <rdfs:label>scanned by</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/g-oops#scans -->
+
+    <owl:ObjectProperty rdf:about="http://www.semanticweb.org/g-oops#scans">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/g-oops#Scan"/>
+        <rdfs:range rdf:resource="http://www.semanticweb.org/g-oops#Ontology"/>
+        <rdfs:comment>Scanning property of an ontology for OOPS pitfall.</rdfs:comment>
+        <rdfs:label>scans</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#object -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#object">
+        <rdfs:domain rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+        <rdfs:comment>The object of the subject RDF statement.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        <rdfs:label>object</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#predicate">
+        <rdfs:domain rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+        <rdfs:comment>The predicate of the subject RDF statement.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        <rdfs:label>predicate</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#subject -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#subject">
+        <rdfs:domain rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+        <rdfs:comment>The subject of the subject RDF statement.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        <rdfs:label>subject</rdfs:label>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#wasAttributedTo -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasAttributedTo">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#wasGeneratedBy -->
+
+    <owl:ObjectProperty rdf:about="http://www.w3.org/ns/prov#wasGeneratedBy">
+        <rdfs:subPropertyOf rdf:resource="http://www.w3.org/2002/07/owl#topObjectProperty"/>
+    </owl:ObjectProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Data properties
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://purl.org/dc/terms/description -->
+
+    <owl:DatatypeProperty rdf:about="http://purl.org/dc/terms/description">
+        <rdfs:comment>Description may include but is not limited to: an abstract, a table of contents, a graphical representation, or a free-text account of the resource.</rdfs:comment>
+        <rdfs:label>Description</rdfs:label>
+        <prov:definition>An account of the resource.</prov:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/g-oops#pitfallCode -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/g-oops#pitfallCode">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/g-oops#Pitfall"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#int"/>
+        <rdfs:comment>Code of the pitfall.</rdfs:comment>
+        <rdfs:label>pitfall code</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.semanticweb.org/g-oops#pitfallDescription -->
+
+    <owl:DatatypeProperty rdf:about="http://www.semanticweb.org/g-oops#pitfallDescription">
+        <rdfs:domain rdf:resource="http://www.semanticweb.org/g-oops#Pitfall"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>Description associated with the pitfall.</rdfs:comment>
+        <rdfs:label>pitfall description</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/2002/07/owl#versionInfo -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/2002/07/owl#versionInfo">
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>An owl:versionInfo statement generally has as its object a string giving information about this version, for example RCS/CVS keywords. This statement does not contribute to the logical meaning of the ontology other than that given by the RDF(S) model theory.
+
+Although this property is typically used to make statements about ontologies, it may be applied to any OWL construct. For example, one could attach a owl:versionInfo statement to an OWL class.</rdfs:comment>
+        <rdfs:label>versionInfo</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#endedAtTime -->
+
+    <owl:DatatypeProperty rdf:about="http://www.w3.org/ns/prov#endedAtTime">
+        <rdfs:domain rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#dateTime"/>
+        <rdfs:label>endedAtTime</rdfs:label>
+        <prov:definition>End is when an activity is deemed to have been ended by an entity, known as trigger. The activity no longer exists after its end. Any usage, generation, or invalidation involving an activity precedes the activity&apos;s end. An end may refer to a trigger entity that terminated the activity, or to an activity, known as ender that generated the trigger.</prov:definition>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- https://xmlns.com/foaf/spec/#term_name -->
+
+    <owl:DatatypeProperty rdf:about="https://xmlns.com/foaf/spec/#term_name">
+        <rdfs:domain rdf:resource="http://www.w3.org/2002/07/owl#Thing"/>
+        <rdfs:range rdf:resource="http://www.w3.org/2001/XMLSchema#string"/>
+        <rdfs:comment>The name of something is a simple textual string.</rdfs:comment>
+        <rdfs:label>name</rdfs:label>
+    </owl:DatatypeProperty>
+    
+
+
+    <!-- 
+    ///////////////////////////////////////////////////////////////////////////////////////
+    //
+    // Classes
+    //
+    ///////////////////////////////////////////////////////////////////////////////////////
+     -->
+
+    
+
+
+    <!-- http://www.semanticweb.org/g-oops#Class -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/g-oops#Class">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/g-oops#Concept"/>
+        <rdfs:comment>Class of an ontology.</rdfs:comment>
+        <rdfs:label>Class</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/g-oops#Concept -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/g-oops#Concept">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+        <rdfs:comment>Ontology element.</rdfs:comment>
+        <rdfs:label>Concept</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/g-oops#Correction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/g-oops#Correction">
+        <rdfs:comment>Set of axioms to solve an OOPS pitfall.</rdfs:comment>
+        <rdfs:label>Correction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/g-oops#GeneratedPitfall -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/g-oops#GeneratedPitfall">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/g-oops#Pitfall"/>
+        <rdfs:comment>Pitfall of an ontology that has been generated by an agent.</rdfs:comment>
+        <rdfs:label>Generated Pitfall</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/g-oops#Interaction -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/g-oops#Interaction">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:comment>Interaction between humans and agents or between agents.</rdfs:comment>
+        <rdfs:label>Interaction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/g-oops#LanguageModel -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/g-oops#LanguageModel">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#SoftwareAgent"/>
+        <rdfs:comment>Deep Learning architecture based on transformers.</rdfs:comment>
+        <rdfs:label>Language Model</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/g-oops#NativePitfall -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/g-oops#NativePitfall">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/g-oops#Pitfall"/>
+        <rdfs:comment>Pitfall present in an ontology.</rdfs:comment>
+        <rdfs:label>Native Pitfall</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/g-oops#NegativeCorrection -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/g-oops#NegativeCorrection">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/g-oops#Correction"/>
+        <rdfs:comment>Wrong correction.</rdfs:comment>
+        <rdfs:label>Negative Correction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/g-oops#Ontology -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/g-oops#Ontology">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:comment>An ontology, in this case interpreted as the A-Box.</rdfs:comment>
+        <rdfs:label>Ontology</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/g-oops#Oracle -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/g-oops#Oracle">
+        <rdfs:comment>Evaluator of OOPS pitfalls.</rdfs:comment>
+        <rdfs:label>Oracle</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/g-oops#Pitfall -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/g-oops#Pitfall">
+        <rdfs:comment>OOPS pitfall.</rdfs:comment>
+        <rdfs:label>Pitfall</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/g-oops#PositiveCorrection -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/g-oops#PositiveCorrection">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/g-oops#Correction"/>
+        <rdfs:comment>Correct correction.</rdfs:comment>
+        <rdfs:label>Positive Correction</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/g-oops#Predicate -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/g-oops#Predicate">
+        <rdfs:subClassOf rdf:resource="http://www.semanticweb.org/g-oops#Concept"/>
+        <rdfs:comment>Object property of an ontology.</rdfs:comment>
+        <rdfs:label>Predicate</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/g-oops#Prompt -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/g-oops#Prompt">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+        <rdfs:comment>Prompt for Large Language Model.</rdfs:comment>
+        <rdfs:label>Prompt</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.semanticweb.org/g-oops#Scan -->
+
+    <owl:Class rdf:about="http://www.semanticweb.org/g-oops#Scan">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Activity"/>
+        <rdfs:comment>Formal evaluation with report.</rdfs:comment>
+        <rdfs:label>Scan</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement -->
+
+    <owl:Class rdf:about="http://www.w3.org/1999/02/22-rdf-syntax-ns#Statement">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+        <rdfs:comment>The class of RDF statements.</rdfs:comment>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+        <rdfs:label>Statement</rdfs:label>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/2000/01/rdf-schema#Resource -->
+
+    <owl:Class rdf:about="http://www.w3.org/2000/01/rdf-schema#Resource"/>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Activity -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Activity">
+        <owl:disjointWith rdf:resource="http://www.w3.org/ns/prov#Entity"/>
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov-o#"/>
+        <rdfs:label>Activity</rdfs:label>
+        <prov:category>starting-point</prov:category>
+        <prov:component>entities-activities</prov:component>
+        <prov:constraints rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-constraints-20130430/#prov-dm-constraints-fig</prov:constraints>
+        <prov:definition>An activity is something that occurs over a period of time and acts upon or with entities; it may include consuming, processing, transforming, modifying, relocating, using, or generating entities.</prov:definition>
+        <prov:dm rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-Activity</prov:dm>
+        <prov:n rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Activity</prov:n>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Agent -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Agent">
+        <rdfs:isDefinedBy rdf:resource="http://www.w3.org/ns/prov-o#"/>
+        <rdfs:label>Agent</rdfs:label>
+        <prov:category>starting-point</prov:category>
+        <prov:component>agents-responsibility</prov:component>
+        <prov:definition xml:lang="en">An agent is something that bears some form of responsibility for an activity taking place, for the existence of an entity, or for another agent&apos;s activity. </prov:definition>
+        <prov:dm rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-dm-20130430/#term-agent</prov:dm>
+        <prov:n rdf:datatype="http://www.w3.org/2001/XMLSchema#anyURI">http://www.w3.org/TR/2013/REC-prov-n-20130430/#expression-Agent</prov:n>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#Entity -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#Entity">
+        <rdfs:label>Entity</rdfs:label>
+        <prov:definition>An entity is a physical, digital, conceptual, or other kind of thing with some fixed aspects; entities may be real or imaginary.</prov:definition>
+    </owl:Class>
+    
+
+
+    <!-- http://www.w3.org/ns/prov#SoftwareAgent -->
+
+    <owl:Class rdf:about="http://www.w3.org/ns/prov#SoftwareAgent">
+        <rdfs:subClassOf rdf:resource="http://www.w3.org/ns/prov#Agent"/>
+        <rdfs:label>Software Agent</rdfs:label>
+        <prov:definition>A software agent is running software.</prov:definition>
+    </owl:Class>
+</rdf:RDF>
+
+
+
+<!-- Generated by the OWL API (version 4.5.29.2024-05-13T12:11:03Z) https://github.com/owlcs/owlapi -->
+
