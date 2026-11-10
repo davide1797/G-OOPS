@@ -1,0 +1,84 @@
+Code;CQ;Query
+CQ1;Which ontologies are stored in the knowledge base?;"SELECT ?ontology
+WHERE {
+    ?ontology a :Ontology .
+}"
+CQ2;Which ontology was evaluated in a given scan?;"SELECT ?ontology
+WHERE {
+    :given_scan a :Scan ;
+                :evaluates ?ontology .
+    ?ontology a :Ontology .
+}"
+CQ3;Which scans have been performed, and when did they end?;"SELECT ?scan ?endTime
+WHERE {
+    ?scan a :Scan .
+    OPTIONAL {
+        ?scan prov:endedAtTime ?endTime .
+    }
+}"
+CQ4;Which pitfalls have been detected in a given scan?;"SELECT ?scan ?pitfall
+WHERE {
+    given_scan a :Scan ;
+          :contains ?pitfall .
+}"
+CQ5;How many pitfalls have been detected in a given scan?;"SELECT  (COUNT(DISTINCT ?pitfall) AS ?pitfallCount)
+WHERE {
+    given_scan a :Scan ;
+          :contains ?pitfall .
+}"
+CQ6;Which native pitfalls have been detected?;"SELECT ?pitfall
+WHERE {
+    ?pitfall a :NativePitfall .
+}"
+CQ7;Which generated pitfalls have been identified?;"SELECT ?pitfall
+WHERE {
+    ?pitfall a :GeneratedPitfall .
+}"
+CQ8;What are the codes and descriptions of the detected pitfalls?;"SELECT ?pitfall ?code ?description
+WHERE {
+    ?pitfall a :Pitfall .
+    OPTIONAL { ?pitfall :pitfallCode ?code . }
+    OPTIONAL { ?pitfall :pitfallDescription ?description . }
+}"
+CQ9;Which classes/predicates are involved in the detected pitfalls?;"SELECT ?concept
+WHERE {
+    given_pitfall a :Pitfall ;
+             :involves ?concept .
+}"
+CQ10;Which corrections are available, and what do they include?;"SELECT ?correction ?includedElement
+WHERE {
+    ?correction a :Correction ;
+                :includes ?includedElement .
+}"
+CQ11;Which corrections have been classified as positive or negative?;"SELECT ?correction ?type
+WHERE {
+    {
+        ?correction a :PositiveCorrection .
+        BIND(""Positive"" AS ?type)
+    }
+    UNION
+    {
+        ?correction a :NegativeCorrection .
+        BIND(""Negative"" AS ?type)
+    }
+}"
+CQ12;Which corrections solve a given pitfall?;"SELECT ?correction 
+WHERE {
+    ?correction :subject ?given_pitfall ;
+                 a :PositiveCorrection.
+}"
+CQ13;Which prompt was used to generate a given correction?;"SELECT ?interaction ?prompt
+WHERE {
+    given_correction prov:wasGeneratedBy ?interaction .
+    ?interaction :partOf ?prompt .
+    ?prompt a :Prompt .
+}"
+CQ14;Which scan detected a particular pitfall in a given ontology?;"SELECT DISTINCT ?scan ?pitfall given_ontology
+WHERE {
+    ?scan a :Scan ;
+          :contains ?pitfall ;
+          :evaluates given_ontology .
+
+    given_ontology a :Ontology .
+    ?pitfall a :Pitfall .
+}"
