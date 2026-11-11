@@ -85,8 +85,7 @@ This ratio indicates the balance between conceptual entities (classes) and their
 | OntoPFAS<sup>6</sup>|          *0.738095 |             0.714286 |              0.677419 |             0.451613 |
 |       <b>G-OOPS</b> |                0.4 |                 *0.8 |              *0.83333 |           <b>1.5</b> |
 
-**Note:** In bold, the best score; with * the second best one.
-**Note:** For *ChEBI*, Inheritance Richness is reported as *NA* because the computation required much computational power.
+**Note:** In bold, the best score; with * the second best one. For *ChEBI*, Inheritance Richness is reported as *NA* because the computation required much computational power.
 
 ## 
 <sup>1</sup>https://bioportal.bioontology.org/ontologies/EXO
